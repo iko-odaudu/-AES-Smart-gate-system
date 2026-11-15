@@ -7,11 +7,11 @@
 #include <PubSubClient.h>
 
 // --- WiFi ---
-const char* ssid = "Ip";
-const char* password = "123456ac";
+const char* ssid = "YOUR_WIFI_NAME";
+const char* password = "YOUR_WIFI_PASSWORD";
 
 // --- MQTT (the Pi's bulletin board) ---
-const char* mqtt_server = "172.20.10.3";  // Pi's IP address
+const char* mqtt_server = "YOUR_PI_IP";  // Pi's IP address
 WiFiClient espClient;
 PubSubClient mqttClient(espClient);
 
