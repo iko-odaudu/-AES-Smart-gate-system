@@ -35,7 +35,8 @@ The Wi-Fi and MQTT broker link between the ESP32 and the Pi was mainly set up by
 ### Things I ran into
 
 - **Boot pins:** code would not upload with the LCD on GPIO 12. Some ESP32 pins are read at power-up to decide how the chip boots (GPIO 0, 2 and 12). I moved the LCD lines and put the button on GPIO 12.
-- **3.3 V vs 5 V:** the RC522 only runs from 3.3 V, everything else from 5 V, with one shared ground. The reader would not work with an Arduino Uno, so I moved the build to the ESP32.
+- **3.3 V vs 5 V:** the RC522 only runs from 3.3 V and 5 V can damage it, so it is powered straight from the ESP32's 3.3 V pin. Everything else runs from the 5 V rail, with one shared ground.
+- **Switching boards:** we started on an Arduino Uno WiFi, but it would not communicate reliably with the RC522 over SPI. After a lot of testing we moved to the ESP32, which worked without issues and has Wi-Fi built in.
 - **Hotspot networking:** an iPhone hotspot blocks direct device-to-device traffic, so all messages go through the MQTT broker on the Pi.
 
 ## Pin map (ESP32)
